@@ -10,7 +10,7 @@
         <TextBox x:Name="nameFileString" HorizontalAlignment="Center" Margin="0,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324" Height="28" IsReadOnly="True"/>
         <Button x:Name="load" Click="load_button" Content="Load PS BIOS" HorizontalAlignment="Center" Margin="0,18,0,0" VerticalAlignment="Top" Height="48" Width="194"/>
         <ScrollViewer Margin="0,153,0,0">
-            <DataGrid Height="551.7" Width="1262" Margin="0,-1,0,0" x:Name="phonesGrid" AutoGenerateColumns="True" ItemsSource="{DynamicResource ResourceKey=phones}">
+            <DataGrid Height="551.7" Width="1262" Margin="0,-1,0,0" x:Name="OpcodesGrid" AutoGenerateColumns="True" ItemsSource="{DynamicResource ResourceKey=Opcodes}" CanUserSortColumns = "false">
 
             </DataGrid>
         </ScrollViewer>

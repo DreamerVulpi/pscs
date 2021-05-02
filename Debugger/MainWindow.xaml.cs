@@ -1,20 +1,19 @@
 ﻿using Microsoft.Win32;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.IO;
+using PsCs.Disasm;
+using PsCs.Hardware;
+
 namespace Debugger
 {
+    public class Opcode
+    {
+        public bool Breakpoint { get; set; }
+        public string Address { get; set; }
+        public string NameOpcodes { get; set; }
+        public string Commentary { get; set; }
+    }
     public class Phone
     {
         public string Title { get; set; }
@@ -27,37 +26,40 @@ namespace Debugger
         public MainWindow()
         {
             InitializeComponent();
-            List<Phone> phonesList = new List<Phone>
-            {
-                new Phone { Title="iPhone 6S", Company="Apple", Price=54990 },
-                new Phone {Title="Lumia 950", Company="Microsoft", Price=39990 },
-                new Phone {Title="Nexus 5X", Company="Google", Price=29990 }
-            };
-            phonesGrid.ItemsSource = phonesList;
         }
 
         private void load_button(object sender, RoutedEventArgs e)
         {
             var fileDialog = new OpenFileDialog();
             
-            fileDialog.InitialDirectory = "c:\\";
+            fileDialog.InitialDirectory = "C:\\Users\\mante\\go\\src\\github.com\\weqqr\\ps";
             fileDialog.Filter = "bin files (*.bin)|*.bin|All files (*.*)|*.*";
             fileDialog.FilterIndex = 1;
             fileDialog.RestoreDirectory = true;
-            
 
-            var fileContent = string.Empty;
+
+            byte[] bios = {0};
             
             if (fileDialog.ShowDialog() == true)
             {
-                var fileStream = fileDialog.OpenFile();
-
-                using (StreamReader reader = new StreamReader(fileStream))
-                {
-                    fileContent = reader.ReadToEnd();        
-                }
+                int len = fileDialog.FileName.Length;
+                bios = File.ReadAllBytes(fileDialog.FileName);
                 nameFileString.Text = "Загружено: " + Path.GetFileName(fileDialog.FileName);
             }
+            
+            var bus = new Bus(bios);
+            
+            uint pc = 0x1FC00000;
+            List<Opcode> opcodesList = new List<Opcode>();
+                
+            for (int i = 0; i < 10; i++)
+            {
+                var instruction = new Instruction(bus.LoadWord(pc));
+                opcodesList.Add(new Opcode{Breakpoint = false, Address = pc.ToString("X8"), NameOpcodes = instruction.ToString(), Commentary = ""});
+                pc += 4;
+            }
+
+            OpcodesGrid.ItemsSource = opcodesList;
 
         }
     }
