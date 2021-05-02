@@ -13,13 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.IO;
-namespace PsCsWpf
+namespace Debugger
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    /// 
-
     public class Phone
     {
         public string Title { get; set; }
