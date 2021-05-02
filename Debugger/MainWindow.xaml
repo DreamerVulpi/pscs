@@ -1,0 +1,20 @@
+﻿<Window x:Class="PsCsWpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PsCsWpf"
+        mc:Ignorable="d"
+        Title="MainWindow" MinHeight="720" MinWidth="1280" MaxHeight="720" MaxWidth="1280" Width="1281">
+    <Grid>
+        <TextBox x:Name="nameFileString" HorizontalAlignment="Center" Margin="0,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324" Height="28" IsReadOnly="True"/>
+        <Button x:Name="load" Click="load_button" Content="Load bios PS" HorizontalAlignment="Center" Margin="0,18,0,0" VerticalAlignment="Top" Height="48" Width="194"/>
+        <ScrollViewer Margin="0,153,0,0">
+            <DataGrid Height="551.7" Width="1262" Margin="0,-1,0,0" x:Name="phonesGrid" AutoGenerateColumns="True" ItemsSource="{DynamicResource ResourceKey=phones}">
+
+            </DataGrid>
+        </ScrollViewer>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="64,105,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

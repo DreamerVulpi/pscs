@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PsCs.Disasm", "PsCs.Disasm\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PsCs.Hardware", "PsCs.Hardware\PsCs.Hardware.csproj", "{1F65D129-E54A-40C6-9A96-7C70CCE36B2F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Debugger", "Debugger\Debugger.csproj", "{F91CC2D9-BED8-4905-BE7D-88044EC58796}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{1F65D129-E54A-40C6-9A96-7C70CCE36B2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F65D129-E54A-40C6-9A96-7C70CCE36B2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F65D129-E54A-40C6-9A96-7C70CCE36B2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F91CC2D9-BED8-4905-BE7D-88044EC58796}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F91CC2D9-BED8-4905-BE7D-88044EC58796}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F91CC2D9-BED8-4905-BE7D-88044EC58796}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F91CC2D9-BED8-4905-BE7D-88044EC58796}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
